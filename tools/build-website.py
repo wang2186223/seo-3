@@ -273,13 +273,15 @@ class WebsiteBuilder:
                     'url': f"/novels/{novel_data['slug']}/chapter-{chapters[i+1]['number']}"
                 }
                 
-            # 准备所有章节列表（用于目录）
+            # 准备所有章节列表（用于目录）- 优化：只传必要信息
             all_chapters = []
+            novel_slug = novel_data['slug']
+            total_chapters = len(chapters)
             for ch in chapters:
                 all_chapters.append({
                     'number': ch['number'],
                     'title': ch['title'],
-                    'url': f"/novels/{novel_data['slug']}/chapter-{ch['number']}"
+                    'url': f"/novels/{novel_slug}/chapter-{ch['number']}"
                 })
             
             # 获取时间戳信息
@@ -299,13 +301,15 @@ class WebsiteBuilder:
                     'author': novel_data['author'],
                     'cover_url': self.get_cover_url(novel_data),
                     'url': f"/novels/{novel_data['slug']}/",
+                    'slug': novel_data['slug'],
+                    'total_chapters': total_chapters,
                     'chapters': all_chapters,
                     'tags': novel_data['tags']
                 },
                 timestamps=timestamps,
                 prev_chapter=prev_chapter,
                 next_chapter=next_chapter,
-                canonical_url=f"{self.site_url}/novels/{novel_data['slug']}/chapter-{chapter['number']}.html",
+                canonical_url=f"{self.site_url}/novels/{novel_data['slug']}/chapter-{chapter['number']}",
                 site_url=self.site_url,
                 site=self.config.get('site', {})
             )
@@ -501,7 +505,8 @@ class WebsiteBuilder:
             # 只添加前10个章节到sitemap中，减少文件大小
             chapters_to_include = novel_data['chapters'][:10]  # 只取前10个章节
             for chapter in chapters_to_include:
-                chapter_url = f"novels/{novel_data['slug']}/chapter-{chapter['number']}.html"
+                # 去掉.html后缀，使用cleanURL
+                chapter_url = f"novels/{novel_data['slug']}/chapter-{chapter['number']}"
                 self.add_url_to_sitemap(urlset, chapter_url, priority='0.6', changefreq='monthly')
                 
         # 保存站点地图

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head><title>Test Redirect</title></head>
+<body>
+<h1>测试域名跳转</h1>
+<a href="/novels/test/chapter-2" class="nav-btn" id="next-chapter">Next Chapter</a>
+
+<script>
+const NEXT_DOMAIN='https://novel.kvlj.top';
+console.log('NEXT_DOMAIN:', NEXT_DOMAIN);
+
+function getNextUrl(url) {
+    console.log('getNextUrl called with:', url);
+    if (!window.NEXT_DOMAIN || !url) return url;
+    try {
+        const path = new URL(url, location.origin).pathname;
+        const newUrl = window.NEXT_DOMAIN + path;
+        console.log('Redirecting to:', newUrl);
+        return newUrl;
+    } catch (e) {
+        console.error('Error:', e);
+        return url;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded fired');
+    const nextBtn = document.getElementById('next-chapter');
+    console.log('Next button:', nextBtn);
+    console.log('Button disabled:', nextBtn?.disabled);
+    console.log('NEXT_DOMAIN exists:', !!window.NEXT_DOMAIN);
+    
+    if (nextBtn && !nextBtn.disabled && window.NEXT_DOMAIN) {
+        console.log('Adding click listener');
+        nextBtn.addEventListener('click', function(e) {
+            console.log('Click detected, href:', this.href);
+            e.preventDefault();
+            const newUrl = getNextUrl(this.href);
+            console.log('Will redirect to:', newUrl);
+            alert('将跳转到: ' + newUrl);
+            // window.location.href = newUrl; // 注释掉实际跳转，只显示alert
+        });
+    } else {
+        console.log('Conditions not met - button:', !!nextBtn, 'disabled:', nextBtn?.disabled, 'domain:', !!window.NEXT_DOMAIN);
+    }
+});
+</script>
+</body>
+</html>

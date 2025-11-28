@@ -5,6 +5,18 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "outputDirectory": "docs",
+  "redirects": [
+    {
+      "source": "/novels/:novel/:chapter.html",
+      "destination": "/novels/:novel/:chapter",
+      "permanent": true
+    },
+    {
+      "source": "/novels/:novel/index.html",
+      "destination": "/novels/:novel",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/",
