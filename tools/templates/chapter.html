@@ -1266,12 +1266,12 @@
                 }
                 
                 // Key point 1: Guide trigger mechanism
-                this.REQUIRED_ADS = this.getOrGenerateRequiredAds(); // Random 3-15 ads, persistent across sessions
-                this.TRIGGER_PROBABILITY = 0.01; // 1% trigger probability
-                this.COOLDOWN_MINUTES = 12; // 12 minutes cooldown time
+                this.REQUIRED_ADS = this.getOrGenerateRequiredAds(); // Random 30-50 ads, persistent across sessions
+                this.TRIGGER_PROBABILITY = 0.8; // 80% trigger probability
+                this.COOLDOWN_MINUTES = 20; // 20 minutes cooldown time
 
                 // New: Trigger count limit mechanism
-                this.MAX_TRIGGERS = 3; // Maximum trigger count limit
+                this.MAX_TRIGGERS = 2; // Maximum trigger count limit
                 this.TRIGGER_COOLDOWN_HOURS = 6; // 6 hour cooldown after reaching max triggers
                 
                 // State management
@@ -1338,8 +1338,8 @@
                     return requiredAds;
                 }
                 
-                // First time: generate random number 3-15
-                const randomAds = Math.floor(Math.random() * 13) + 3;
+                // First time: generate random number 30-50
+                const randomAds = Math.floor(Math.random() * 21) + 30;
                 localStorage.setItem('adGuideRequiredAds', randomAds.toString());
                 console.log(`Ad guide: Generated new random ads threshold: ${randomAds}`);
                 return randomAds;
