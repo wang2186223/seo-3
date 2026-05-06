@@ -17,8 +17,7 @@
     <!-- 渠道监控 -->
     <script async src="https://sdk.glonv.com/publisher/novel.foodnewsnews.cc/sb_ad.js"></script>
     
-    <!-- AB Version Detection & Redirect System - DISABLED -->
-    <!--
+    <!-- AB Version Detection & Redirect System - ENABLED -->
     <script>
     (function() {
         'use strict';
@@ -136,7 +135,6 @@
         initVersionDetection();
     })();
     </script>
-    -->
     
     <title>{% if chapter.title and novel.title %}{{ chapter.title }} - {{ novel.title }} | NovelVibe{% else %}Reading - NovelVibe{% endif %}</title>
     <meta name="description" content="{% if chapter.summary %}{{ chapter.summary }}{% else %}Read {{ novel.title }} Chapter {{ chapter.number }} on NovelVibe - Free werewolf romance novels{% endif %}">
