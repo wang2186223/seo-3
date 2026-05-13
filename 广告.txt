@@ -1,32 +1,11 @@
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
      crossorigin="anonymous"></script>
-
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
-     crossorigin="anonymous"></script>
-<!-- novel.foodnewsnews.cc_fb_0106 -->
+<!-- novel.foodnewsnews.cc_fb_051301 -->
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-1759732121301484"
-     data-ad-slot="3902540735"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-
-
-
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
-     crossorigin="anonymous"></script>
-<!-- novel.foodnewsnews.cc_fb_020401 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1759732121301484"
-     data-ad-slot="8337785162"
+     data-ad-slot="1870441862"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
 <script>
@@ -36,30 +15,11 @@
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
      crossorigin="anonymous"></script>
-<!-- novel.foodnewsnews.cc_fb_020402 -->
+<!-- novel.foodnewsnews.cc_fb_051302 -->
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-1759732121301484"
-     data-ad-slot="6940943014"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-
-
-
-
-
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
-     crossorigin="anonymous"></script>
-<!-- novel.foodnewsnews.cc_fb_020403 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1759732121301484"
-     data-ad-slot="1425184031"
+     data-ad-slot="8115067425"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
 <script>
@@ -69,11 +29,11 @@
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
      crossorigin="anonymous"></script>
-<!-- novel.foodnewsnews.cc_fb_020404 -->
+<!-- novel.foodnewsnews.cc_fb_051303 -->
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-1759732121301484"
-     data-ad-slot="3959556450"
+     data-ad-slot="6801985753"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
 <script>
@@ -81,7 +41,18 @@
 </script>
 
 
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
+     crossorigin="anonymous"></script>
+<!-- novel.foodnewsnews.cc_fb_051304 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1759732121301484"
+     data-ad-slot="4225142464"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 
 

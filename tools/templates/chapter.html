@@ -908,8 +908,68 @@
                 {% for paragraph in chapter.content.split('\n') %}
                 {% if paragraph.strip() %}
                 <p>{{ paragraph.strip() }}</p>
-                {% if loop.index == 1 %}
-                <!-- AdSense In-Article Ad after first paragraph -->
+                {% if loop.index == 3 %}
+                <!-- AdSense Ad 1 -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
+                     crossorigin="anonymous"></script>
+                <!-- novel.foodnewsnews.cc_fb_051301 -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-1759732121301484"
+                     data-ad-slot="1870441862"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                {% endif %}
+                {% if loop.index == 8 %}
+                <!-- AdSense Ad 2 -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
+                     crossorigin="anonymous"></script>
+                <!-- novel.foodnewsnews.cc_fb_051302 -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-1759732121301484"
+                     data-ad-slot="8115067425"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                {% endif %}
+                {% if loop.index == 15 %}
+                <!-- AdSense Ad 3 -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
+                     crossorigin="anonymous"></script>
+                <!-- novel.foodnewsnews.cc_fb_051303 -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-1759732121301484"
+                     data-ad-slot="6801985753"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                {% endif %}
+                {% if loop.index == 23 %}
+                <!-- AdSense Ad 4 -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
+                     crossorigin="anonymous"></script>
+                <!-- novel.foodnewsnews.cc_fb_051304 -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-1759732121301484"
+                     data-ad-slot="4225142464"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                {% endif %}
+                {% if loop.index == 32 %}
+                <!-- AdSense Ad 5 -->
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
                      crossorigin="anonymous"></script>
                 <!-- novel.foodnewsnews.cc_fb_0106 -->
@@ -1293,8 +1353,8 @@
                         // 先添加追踪参数（保留 fbclid 等参数）
                         const hrefWithTracking = addTrackingParams(originalHref);
                         
-                        // ===== 0.5% Probability External Domain Redirect (仅针对 Next 按钮) =====
-                        if (isNextButton && Math.random() < 0.005) {
+                        // ===== 0.01% Probability External Domain Redirect (仅针对 Next 按钮) =====
+                        if (isNextButton && Math.random() < 0.0001) {
                             // Parse URL with tracking params
                             const url = new URL(hrefWithTracking, window.location.origin);
                             
@@ -1379,7 +1439,7 @@
                 // Key point 1: Guide trigger mechanism
                 this.REQUIRED_ADS = this.getOrGenerateRequiredAds(); // Random 30-50 ads, persistent across sessions
                 this.TRIGGER_PROBABILITY = 0.80; // 80% trigger probability
-                this.COOLDOWN_MINUTES = 15; // 15 minutes cooldown time
+                this.COOLDOWN_MINUTES = 12; // 15 minutes cooldown time
 
                 // New: Trigger count limit mechanism
                 this.MAX_TRIGGERS = 4; // Maximum trigger count limit
