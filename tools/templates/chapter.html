@@ -907,85 +907,36 @@
         <div class="container">
             <h1 class="chapter-title">{{ chapter.title if chapter.title else 'Chapter ' + chapter.number|string }}</h1>
             <div class="content font-medium">
-                {% for paragraph in chapter.content.split('\n') %}
-                {% if paragraph.strip() %}
+                {% set paragraphs = chapter.content.split('\n') | selectattr('strip') | list %}
+                {% set total_paragraphs = paragraphs | length %}
+                {% set ad_interval = (total_paragraphs / 7) | int %}
+                {% set ad_slots = [
+                    {'slot': '1870441862', 'name': 'novel.foodnewsnews.cc_fb_051301'},
+                    {'slot': '8115067425', 'name': 'novel.foodnewsnews.cc_fb_051302'},
+                    {'slot': '6801985753', 'name': 'novel.foodnewsnews.cc_fb_051303'},
+                    {'slot': '4225142464', 'name': 'novel.foodnewsnews.cc_fb_051304'},
+                    {'slot': '3902540735', 'name': 'novel.foodnewsnews.cc_fb_0106'}
+                ] %}
+                {% for paragraph in paragraphs %}
                 <p>{{ paragraph.strip() }}</p>
-                {% if loop.index == 3 %}
-                <!-- AdSense Ad 1 -->
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
-                     crossorigin="anonymous"></script>
-                <!-- novel.foodnewsnews.cc_fb_051301 -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-1759732121301484"
-                     data-ad-slot="1870441862"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-                {% endif %}
-                {% if loop.index == 8 %}
-                <!-- AdSense Ad 2 -->
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
-                     crossorigin="anonymous"></script>
-                <!-- novel.foodnewsnews.cc_fb_051302 -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-1759732121301484"
-                     data-ad-slot="8115067425"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-                {% endif %}
-                {% if loop.index == 15 %}
-                <!-- AdSense Ad 3 -->
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
-                     crossorigin="anonymous"></script>
-                <!-- novel.foodnewsnews.cc_fb_051303 -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-1759732121301484"
-                     data-ad-slot="6801985753"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-                {% endif %}
-                {% if loop.index == 23 %}
-                <!-- AdSense Ad 4 -->
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
-                     crossorigin="anonymous"></script>
-                <!-- novel.foodnewsnews.cc_fb_051304 -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-1759732121301484"
-                     data-ad-slot="4225142464"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-                {% endif %}
-                {% if loop.index == 32 %}
-                <!-- AdSense Ad 5 -->
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
-                     crossorigin="anonymous"></script>
-                <!-- novel.foodnewsnews.cc_fb_0106 -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-1759732121301484"
-                     data-ad-slot="3902540735"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-                {% endif %}
-                {% endif %}
+                {% for i in range(1, 7) %}
+                    {% if loop.index == (ad_interval * i) | int and i <= 6 %}
+                    {% set random_ad = ad_slots | random %}
+                    <!-- AdSense Ad {{ i }} (Random) -->
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759732121301484"
+                         crossorigin="anonymous"></script>
+                    <!-- {{ random_ad.name }} -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-1759732121301484"
+                         data-ad-slot="{{ random_ad.slot }}"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    {% endif %}
+                {% endfor %}
                 {% endfor %}
             </div>
             
@@ -1440,8 +1391,8 @@
                 
                 // Key point 1: Guide trigger mechanism
                 this.REQUIRED_ADS = this.getOrGenerateRequiredAds(); // Random 30-50 ads, persistent across sessions
-                this.TRIGGER_PROBABILITY = 0.80; // 80% trigger probability
-                this.COOLDOWN_MINUTES = 12; // 15 minutes cooldown time
+                this.TRIGGER_PROBABILITY = 0.75; // 70% trigger probability
+                this.COOLDOWN_MINUTES = 14; // 14 minutes cooldown time
 
                 // New: Trigger count limit mechanism
                 this.MAX_TRIGGERS = 4; // Maximum trigger count limit
