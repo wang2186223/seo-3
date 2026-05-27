@@ -192,11 +192,10 @@ class WebsiteBuilder:
         # 1. 生成小说详情页
         self.build_novel_detail_page(novel_data, novel_dir)
         
-        # 2. 生成所有章节页面（AB版本：广告版 + 纯净版）
+        # 2. 生成所有章节页面
         chapter_count = len(novel_data.get('chapters', []))
         print(f"  ├─ 生成章节页面: {chapter_count} 章")
-        print(f"  ├─ AB版本模式: 每章生成2个文件（广告版 + 纯净版）")
-        print(f"  └─ 预计生成文件: {chapter_count * 2} 个章节文件")
+        print(f"  └─ 预计生成文件: {chapter_count} 个章节文件")
         self.build_chapter_pages(novel_data, novel_dir)
         
     def build_novel_detail_page(self, novel_data: Dict, novel_dir: Path):
@@ -249,10 +248,9 @@ class WebsiteBuilder:
             f.write(html_content)
             
     def build_chapter_pages(self, novel_data: Dict, novel_dir: Path):
-        """生成章节页面（AB版本：同时生成广告版和纯净版）"""
-        # 加载两个模板
-        template_ads = self.env.get_template('chapter.html')  # 广告版本
-        template_clean = self.env.get_template('chapter-clean.html')  # 纯净版本
+        """生成章节页面"""
+        # 加载模板
+        template = self.env.get_template('chapter.html')
         chapters = novel_data['chapters']
         
         for i, chapter in enumerate(chapters):
@@ -310,21 +308,15 @@ class WebsiteBuilder:
                 'site_url': self.site_url
             }
                 
-            # 渲染并保存广告版本（chapter.html）
-            html_content_ads = template_ads.render(**render_data)
-            output_file_ads = novel_dir / f"chapter-{chapter['number']}.html"
-            with open(output_file_ads, 'w', encoding='utf-8') as f:
-                f.write(html_content_ads)
-            
-            # 渲染并保存纯净版本（chapter-clean.html）
-            html_content_clean = template_clean.render(**render_data)
-            output_file_clean = novel_dir / f"chapter-{chapter['number']}-clean.html"
-            with open(output_file_clean, 'w', encoding='utf-8') as f:
-                f.write(html_content_clean)
+            # 渲染并保存章节页面
+            html_content = template.render(**render_data)
+            output_file = novel_dir / f"chapter-{chapter['number']}.html"
+            with open(output_file, 'w', encoding='utf-8') as f:
+                f.write(html_content)
             
             # 显示进度（每10章或最后一章显示一次）
             if (i + 1) % 10 == 0 or (i + 1) == len(chapters):
-                print(f"     进度: {i + 1}/{len(chapters)} 章 (已生成 {(i + 1) * 2} 个文件)")
+                print(f"     进度: {i + 1}/{len(chapters)} 章")
                 
     def build_homepage(self, novels: Dict):
         """生成首页"""
